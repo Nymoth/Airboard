@@ -1,0 +1,5 @@
+<div class="switch">
+  <div class="step" *ngFor="let division of divisions" [ngClass]="{ handler: value === division }" (click)="changeState(division)">
+    <div class="switch-marker">{{ division }}</div>
+  </div>
+</div>

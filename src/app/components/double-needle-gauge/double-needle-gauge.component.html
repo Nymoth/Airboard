@@ -1,0 +1,9 @@
+<div class="gauge">
+  <div class="main-needle" [style.transform]="mainNeedleAngle"></div>
+  <div class="secondary-needle" [style.transform]="secondaryNeedleAngle"></div>
+  <div class="value">{{ value }}</div>
+  <div *ngFor="let marker of markers; let i = index" class="marker marker-{{ (36 * i) }}">{{ marker }}</div>
+</div>
+<div class="caption">{{ caption }}</div>
+
+<abd-volumetries [value]="value"></abd-volumetries>

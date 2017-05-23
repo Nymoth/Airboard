@@ -1,0 +1,46 @@
+<div class="h-layout">
+
+  <div class="container main">
+    <div class="h-layout">
+      <abd-simple-gauge
+        class="airspeed-gauge"
+        [value]="+(aircraftStream$ | async)?.telemetry.airspeed"
+        [divisor]="50"
+        caption="Speed (Knots)">
+      </abd-simple-gauge>
+
+      <abd-double-needle-gauge
+        class="altitude-gauge"
+        [value]="+(aircraftStream$ | async)?.telemetry.altitude"
+        [divisor]="1"
+        caption="Altitude (feet)">
+      </abd-double-needle-gauge>
+    </div>
+  </div>
+
+  <div class="v-layout">
+    <div class="container aside">
+      <p class="title">Landing gear</p>
+      <abd-single-switch
+        [value]="!!(aircraftStream$ | async)?.control.landing_gear"
+        (onToggleState)="toogleLandingGear($event)">
+      </abd-single-switch>
+    </div>
+
+    <div class="container aside">
+      <p class="title">Flaps</p>
+      <abd-multiple-switch
+        [value]="+(aircraftStream$ | async)?.control.flaps"
+        [steps]="6"
+        (onValueChange)="switchFlaps($event)">
+      </abd-multiple-switch>
+    </div>
+
+    <div class="container aside">
+      <p class="subtitle">Server connection state</p>
+      <abd-connection-indicator
+        [status]="connectionStatus$ | async">
+      </abd-connection-indicator>
+    </div>
+  </div>
+</div>

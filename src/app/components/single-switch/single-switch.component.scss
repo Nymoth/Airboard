@@ -1,0 +1,33 @@
+.switch {
+  height: 75px;
+  border-radius: 5px;
+  background: #999;
+  box-shadow: inset 0 2px 4px 2px #777,
+              0 2px 2px 0px #ccc;
+  cursor: pointer;
+
+  .on, .off {
+    width: 45%;
+    height: 100%;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 1.7em;
+    font-weight: bold;
+    cursor: pointer;
+    color: #999;
+    box-shadow: inset 0 2px 2px 0 #eee,
+                0 2px 2px 0 #999;
+  }
+
+  .on {
+    background: #ddd;
+    text-shadow: 0 2px 1px #eee;
+    float: right;
+  }
+
+  .off {
+    background: #ccc;
+    text-shadow: 0 2px 1px #ddd;
+  }
+}

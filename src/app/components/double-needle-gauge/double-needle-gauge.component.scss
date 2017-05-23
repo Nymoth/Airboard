@@ -1,0 +1,116 @@
+.gauge {
+  width: 400px;
+  height: 400px;
+  background: #333;
+  border-radius: 50%;
+  position: relative;
+  margin: 0 auto;
+
+  &::after {
+    $center-size: 30px;
+
+    content: '';
+    background: #999;
+    width: $center-size;
+    height: $center-size;
+    border-radius: 50%;
+    position: absolute;
+    left: calc(50% - #{$center-size / 2});
+    top: calc(50% - #{$center-size / 2});
+    z-index: 10;
+  }
+
+  .main-needle {
+    $needle-width: 5px;
+
+    position: absolute;
+    background: #ccc;
+    width: $needle-width;
+    height: 40%;
+    left: calc(50% - #{$needle-width / 2});
+    top: 10%;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    transform-origin: #{$needle-width / 2} 100%;
+    transition: transform .2s;
+    z-index: 5;
+    box-shadow: 0 0 2px 1px #333;
+  }
+
+  .secondary-needle {
+    $needle-width: 3px;
+
+    position: absolute;
+    background: #ccc;
+    width: $needle-width;
+    height: 25%;
+    left: calc(50% - #{$needle-width / 2});
+    top: 25%;
+    // border-top-left-radius: 100%;
+    // border-top-right-radius: 100%;
+    transform-origin: #{$needle-width / 2} 100%;
+    transition: transform .2s;
+    z-index: 5;
+    box-shadow: 0 0 2px 1px #333;
+  }
+
+  .marker {
+    $marker-height: 20px;
+    $marker-width: 30px;
+
+    position: absolute;
+    height: $marker-height;
+    width: $marker-width;
+    cursor: default;
+    font-family: sans-serif;
+
+    &.marker-0   { top: 0;                                   left: calc(50% - #{$marker-width / 2}); text-align: center; }
+    &.marker-36  { top: calc( 13% - #{$marker-height / 2});  left: calc(80% - #{$marker-width});     text-align: right;  }
+    &.marker-72  { top: calc( 35% - #{$marker-height / 2});  left: calc(96% - #{$marker-width});     text-align: right;  }
+    &.marker-108 { top: calc( 65% - #{$marker-height / 2});  left: calc(96% - #{$marker-width});     text-align: right;  }
+    &.marker-144 { top: calc( 87% - #{$marker-height / 2});  left: calc(80% - #{$marker-width});     text-align: right;  }
+    &.marker-180 { top: calc(100% - #{$marker-height});      left: calc(50% - #{$marker-width / 2}); text-align: center; }
+    &.marker-216 { top: calc( 87% - #{$marker-height / 2});  left: 20%;                              text-align: left;   }
+    &.marker-252 { top: calc( 65% - #{$marker-height / 2});  left: 4%;                               text-align: left;   }
+    &.marker-288 { top: calc( 35% - #{$marker-height / 2});  left: 4%;                               text-align: left;   }
+    &.marker-324 { top: calc( 13% - #{$marker-height / 2});  left: 20%;                              text-align: left;   }
+  }
+
+  .value {
+    position: absolute;
+    height: 40px;
+    line-height: 40px;
+    width: 24%;
+    background: #999;
+    border: 2px solid #eee;
+    border-radius: 3px;
+    font-size: 1.5em;
+    text-align: center;
+    bottom: 20%;
+    left: calc(38% - 2px);
+    box-shadow: inset 0px 0px 4px 2px #666;
+    // letter-spacing: 1.1rem;
+    // text-indent: 0.6rem;
+    text-shadow: 1px 1px 4px #666;
+
+    // &::before, &::after {
+    //   content: '';
+    //   position: absolute;
+    //   height: 100%;
+    //   width: 2px;
+    //   background: #666;
+    //   top: 0;
+    // }
+
+    // &::before { left: 33%; }
+    // &::after { right: 33%; }
+  }
+
+}
+
+.caption {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 20px;
+}

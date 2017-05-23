@@ -1,0 +1,42 @@
+.h-layout {
+  display: flex;
+  flex-direction: row;
+}
+
+.v-layout {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.container {
+  flex: 1;
+  background: #bbb;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 15px 20px;
+  box-shadow: 0 2px 2px 0 #888,
+              inset 0px 2px 2px #ccc;
+
+  &.main {
+    flex: 3
+  }
+
+  .title {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 0;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 0;
+  }
+}
+
+.airspeed-gauge, .altitude-gauge {
+  flex: 1;
+}
